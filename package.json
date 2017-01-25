@@ -1,0 +1,15 @@
+{
+  "name": "vero-api-delegator",
+  "version": "1.0.0",
+  "description": "fork and mod from https://github.com/devmach/vero",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
