@@ -1,9 +1,9 @@
-var vero = require('vero')(VeroAuth);
-var fs = require('fs')
-var csv = require('fast-csv')
-
 var fileName = "./secret-config.json"
 var config
+
+var vero = require('vero')(VeroAuth)
+var fs = require('fs')
+var csv = require('fast-csv')
 
 try {
   config = require(fileName)
