@@ -1,11 +1,9 @@
-var fileName = "./secret-config.json"
-var config
-
-var VeroAuthTokens = config;
-var VeroAuth = VeroAuthTokens.sandbox;
-var vero = require('vero')(VeroAuth)
+var vero = require('vero')(VeroAuth);
 var fs = require('fs')
 var csv = require('fast-csv')
+
+var fileName = "./secret-config.json"
+var config
 
 try {
   config = require(fileName)
@@ -16,6 +14,8 @@ catch (err) {
   console.log("see secret-config-sample.json for an example")
 }
 
+var VeroAuthTokens = config;
+var VeroAuth = VeroAuthTokens.sandbox;
 
 console.log("session secret is: ", VeroAuth)
 
