@@ -19,7 +19,8 @@ var VeroAuth = VeroAuthTokens.sandbox;
 
 console.log("session secret is: ", VeroAuth)
 
-var stream = fs.createReadStream("csvs/unsubscribe.csv");
+var csv = process.argv[2]
+var stream = fs.createReadStream(csv);
 
 function VeroUserEdit(user, data) {
   vero.users.edit(
