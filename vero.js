@@ -21,8 +21,9 @@ var VeroAuth = VeroAuthTokens.sandbox;
 
 console.log("session secret is: ", VeroAuth)
 
-var csv = process.argv[2]
-var stream = fs.createReadStream(csv);
+var csv = String(process.argv[2])
+console.log(csv)
+//var stream = fs.createReadStream(csv);
 
 function VeroUserEdit(user, data) {
   vero.users.edit(
@@ -75,20 +76,22 @@ function VeroUserUnsubscribe(user, fromRetry){
   });
 }
 
-csv
-  .fromStream(stream, {headers : true})
-  .on("data", function(data){
-    emailAddress = data['email'];
-    // tags = data['tags'];
-    // console.log(emailAddress);
-    // console.log(tags);
-    // VeroUserTag(emailAddress, tags);
-    // VeroUserUnsubscribe(emailAddress);
+function ProcessCSV(stream, method){
+  csv
+    .fromStream(stream, {headers : true})
+    .on("data", function(data){
+      emailAddress = data['email'];
+      // tags = data['tags'];
+      // console.log(emailAddress);
+      // console.log(tags);
+      // VeroUserTag(emailAddress, tags);
+      // VeroUserUnsubscribe(emailAddress);
 
-})
-  .on("end", function(){
-     console.log("done");
-});
+  })
+    .on("end", function(){
+       console.log("done");
+  });
+}
 
 console.log('Running...');
 
