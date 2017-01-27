@@ -1,6 +1,8 @@
 var vero = require('vero')(VeroAuth);
 var fs = require('fs')
 var csv = require('fast-csv')
+var argv = require('minimist')(process.argv.slice(2));
+console.dir(argv);
 
 var fileName = "./secret-config.json"
 var config
