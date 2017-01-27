@@ -23,7 +23,7 @@ console.log("session secret is: ", VeroAuth)
 
 var csv = String(process.argv[2])
 console.log(csv)
-//var stream = fs.createReadStream(csv);
+var stream = fs.createReadStream(csv);
 
 function VeroUserEdit(user, data) {
   vero.users.edit(
