@@ -1,9 +1,13 @@
 # vero-api-delegator
 takes a csv formatted for vero import and delegates it to the api via localhost
 
-1. copy or rename `secret-config-example.json` to `secret-config.json`
-2. add your api keys  
-3. run `$node vero.js -e env -m method -c path/to.csv`
+## installation
+1. `npm install vero-api-delegator`
+2. copy or rename `secret-config-example.json` to `secret-config.json`
+3. add your api keys
+
+## usage
+3. run `$vero -e env -m method -c path/to.csv`
 
 ## methods
 | UserEdit  | UserTag  | UserUnsubscribe  | HeartBeat  |
