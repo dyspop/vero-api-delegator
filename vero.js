@@ -108,7 +108,7 @@ function ProcessCSV(stream, method){
 }
 
 console.log('Running...');
-Heartbeat();
+HeartBeat();
 
 // vero.heartbeat(function(error, response){
 //   if (response.ok) {
