@@ -2,8 +2,8 @@ var vero = require('vero')(VeroAuth);
 var fs = require('fs')
 var csv = require('fast-csv')
 var argv = require('yargs')
-    .usage('Usage: $0 -m [method] -c [path/to.csv] ')
-    .demandOption(['c','m'])
+    .usage('Usage: $0 -e [environment] -m [method] -c [path/to.csv] ')
+    .demandOption(['c','e','m'])
     .argv;
 
 console.log(argv.m, argv.c);
