@@ -29,7 +29,7 @@ var csv = String(argv.c)
 console.log(csv)
 var stream = fs.createReadStream(csv);
 
-function VeroHeartBeat()
+function VeroHeartBeat() {
   vero.heartbeat(function(error, response){
     if (response.ok) {
       console.log('Heartbeat::Success>', response.body.message);
