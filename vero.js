@@ -29,7 +29,7 @@ var csv = String(argv.c)
 console.log(csv)
 var stream = fs.createReadStream(csv);
 
-function VeroHeartBeat() {
+function HeartBeat() {
   vero.heartbeat(function(error, response){
     if (response.ok) {
       console.log('Heartbeat::Success>', response.body.message);
@@ -39,7 +39,7 @@ function VeroHeartBeat() {
   });
 }
 
-function VeroUserEdit(user, data) {
+function UserEdit(user, data) {
   vero.users.edit(
     user,
     {
@@ -57,7 +57,7 @@ function VeroUserEdit(user, data) {
   });
 }
 
-function VeroUserTag(user, new_tags, old_tags){
+function UserTag(user, new_tags, old_tags){
   vero.users.tags(user, "new tag", ["old tag"], function(error, response){
     if (response.ok) {
       console.log('users.tags::Success>', response.body.message);
@@ -67,7 +67,7 @@ function VeroUserTag(user, new_tags, old_tags){
   });
 }
 
-function VeroUserUnsubscribe(user, fromRetry){
+function UserUnsubscribe(user, fromRetry){
   vero.users.unsubscribe(user, function(error, response){
     if (response) {
       if (response.ok) {
