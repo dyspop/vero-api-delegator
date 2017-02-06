@@ -7,10 +7,12 @@ var argv = require('yargs')
     .demandOption(['c','e','m'])
     .argv;
 
-console.log(argv.m, argv.c);
+console.log(argv.e, argv.m, argv.c);
 
 var fileName = "./secret-config.json"
 var config
+
+var environment = argv.e;
 
 try {
   config = require(fileName)
@@ -22,8 +24,7 @@ catch (err) {
   process.exit("exiting...");
 }
 
-var VeroAuthTokens = config;
-var VeroAuth = VeroAuthTokens.sandbox;
+var VeroAuth = config[argv.e];
 
 console.log("session secret is: ", VeroAuth)
 
