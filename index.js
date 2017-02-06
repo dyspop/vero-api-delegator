@@ -19,6 +19,7 @@ catch (err) {
   config = {}
   console.log("unable to read file '" + fileName + "': ", err)
   console.log("see secret-config-sample.json for an example")
+  process.exit("exiting...");
 }
 
 var VeroAuthTokens = config;
