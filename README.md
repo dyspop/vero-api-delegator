@@ -5,6 +5,7 @@ takes a csv formatted for vero import and delegates it to the api via localhost
 2. add your api keys  
 3. run `$node vero.js -c path/to.csv -m method`
 
+## methods
 | VeroUserEdit  | VeroUserTag  | VeroUserUnsubscribe  |
 |:--|:--|:--|
 | edit or add user properties  | add tags to users  | unsubscribe users  |
