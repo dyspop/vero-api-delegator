@@ -6,7 +6,7 @@ var argv = require('yargs')
     .demandOption(['c','m'])
     .argv;
 
-console.dir(argv);
+console.log(argv.m, argv.c);
 
 var fileName = "./secret-config.json"
 var config
@@ -25,7 +25,7 @@ var VeroAuth = VeroAuthTokens.sandbox;
 
 console.log("session secret is: ", VeroAuth)
 
-var csv = String(process.argv[2])
+var csv = String()
 console.log(csv)
 var stream = fs.createReadStream(csv);
 
