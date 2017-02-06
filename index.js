@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var vero = require('vero')(VeroAuth);
 var fs = require('fs')
 var csv = require('fast-csv')

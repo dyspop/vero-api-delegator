@@ -10,6 +10,24 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Dan Black",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dyspop/vero-api-delegator.git"
+  },
+  "keywords": [
+    "Vero",
+    "API",
+    "Email",
+    "Event",
+    "User"
+  ],
+  "bugs": {
+    "url": "https://github.com/dyspop/vero-api-delegator/issues"
+  },
+  "homepage": "https://github.com/dyspop/vero-api-delegator#readme",
+  "bin": {
+    "vero": "./index.js"
+  }
 }
