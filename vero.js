@@ -25,9 +25,19 @@ var VeroAuth = VeroAuthTokens.sandbox;
 
 console.log("session secret is: ", VeroAuth)
 
-var csv = String()
+var csv = String(argv.c)
 console.log(csv)
 var stream = fs.createReadStream(csv);
+
+function VeroHeartBeat()
+  vero.heartbeat(function(error, response){
+    if (response.ok) {
+      console.log('Heartbeat::Success>', response.body.message);
+    } else {
+      console.log('Heartbeat::Fail>', response.text);
+    }
+  });
+}
 
 function VeroUserEdit(user, data) {
   vero.users.edit(
@@ -98,6 +108,7 @@ function ProcessCSV(stream, method){
 }
 
 console.log('Running...');
+Heartbeat();
 
 // vero.heartbeat(function(error, response){
 //   if (response.ok) {
