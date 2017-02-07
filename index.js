@@ -7,6 +7,10 @@ var argv = require('yargs')
     .demandOption(['c','e','m'])
     .argv;
 
+function Exit(){
+  process.exit("exiting...");
+}
+
 console.log(argv.e, argv.m, argv.c);
 
 var fileName = "./secret-config.json"
@@ -21,12 +25,12 @@ catch (err) {
   config = {}
   console.log("unable to read file '" + fileName + "': ", err)
   console.log("see secret-config-sample.json for an example")
-  process.exit("exiting...");
+  Exit()
 }
 
 var VeroAuth = config[argv.e];
 
-console.log("session secret is: ", VeroAuth)
+console.log("Vero auth is: ", VeroAuth)
 
 var csv = String(argv.c)
 console.log(csv)
@@ -38,6 +42,7 @@ function HeartBeat() {
       console.log('Heartbeat::Success>', response.body.message);
     } else {
       console.log('Heartbeat::Fail>', response.text);
+      Exit();
     }
   });
 }
