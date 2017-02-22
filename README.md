@@ -9,7 +9,7 @@ takes a csv formatted for vero import and delegates it to the api via localhost
 5. add your api keys
 
 ## usage
-3. run `$vero -e env -m method -c path/to.csv`
+3. run `$vero -p project_name -m method -c path/to.csv`
 
 ## methods
 | UserEdit  | UserTag  | UserUnsubscribe  | HeartBeat  |

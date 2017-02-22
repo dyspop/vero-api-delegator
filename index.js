@@ -3,8 +3,8 @@ var vero = require('vero')(VeroAuth);
 var fs = require('fs')
 var csv = require('fast-csv')
 var argv = require('yargs')
-    .usage('Usage: $0 -e [environment] -m [method] -c [path/to.csv] ')
-    .demandOption(['c','e','m'])
+    .usage('Usage: $0 -p [project] -m [method] -c [path/to.csv] ')
+    .demandOption(['c','p','m'])
     .argv;
 
 function Exit(){
@@ -16,7 +16,7 @@ console.log(argv.e, argv.m, argv.c);
 var fileName = "./secret-config.json"
 var config
 
-var environment = argv.e;
+var project = argv.p;
 
 try {
   config = require(fileName)
@@ -35,6 +35,8 @@ console.log("Vero auth is: ", VeroAuth)
 var csv = String(argv.c)
 console.log(csv)
 var stream = fs.createReadStream(csv);
+
+var method = argv.m
 
 function HeartBeat() {
   vero.heartbeat(function(error, response){
@@ -103,10 +105,10 @@ function ProcessCSV(stream, method){
     .fromStream(stream, {headers : true})
     .on("data", function(data){
       emailAddress = data['email'];
-      // tags = data['tags'];
-      // console.log(emailAddress);
-      // console.log(tags);
-      // VeroUserTag(emailAddress, tags);
+      tags = data['tags'];
+      console.log(emailAddress);
+      console.log(tags);
+      VeroUserTag(emailAddress, tags);
       // VeroUserUnsubscribe(emailAddress);
 
   })
@@ -117,6 +119,7 @@ function ProcessCSV(stream, method){
 
 console.log('Running...');
 HeartBeat();
+//ProcessCSV(csv, method);
 
 // vero.heartbeat(function(error, response){
 //   if (response.ok) {
@@ -174,10 +177,10 @@ HeartBeat();
 //   }
 // });
 
-// vero.events.track('test@test.com', null, "Test_Event", function(error, response){
-//   if (response.ok) {
-//     console.log('events.track::Success>', response.body.message);
-//   } else {
-//     console.log('events.track::Fail>', response.text);
-//   }
-// });
+vero.events.track('test@test.com', null, "Test_Event", function(error, response){
+  if (response.ok) {
+    console.log('events.track::Success>', response.body.message);
+  } else {
+    console.log('events.track::Fail>', response.text);
+  }
+});
